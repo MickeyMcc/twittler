@@ -9,7 +9,7 @@
   <body>
       <h1> Twittler </h1>
       <h3> Recent Updates </h3>
-      <p class=tweet> a tweet goes here? </p>
+      <button> Get New Tweets! </button>
     
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
@@ -17,15 +17,29 @@
 
       $(document).ready(function(){
         var $body = $('body');
-        //$body.html('');
+        var tweetsSoFar = 0;
+        $body.html('<h1> Twittler </h1><h3> Recent Updates </h3><button> Get New Tweets! </button>');
+        
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
+        //addTweets();
+        
+        function addTweets(tweetsSoFar) { 
+          var index = streams.home.length - 1;
+          while(index >= tweetsSoFar){
+            var tweet = streams.home[index];
+            var $tweet = $('<div></div>');
+            $tweet.text('@' + tweet.user + ': ' + tweet.message);
+            $tweet.appendTo($body);
+            index -= 1;
+          }
+
+          tweetsSoFar = streams.home.length-1;
+          $('button').slideToggle();
+        }
+        $('button').on('click', addTweets(tweetsSoFar));
+
+        if(streams.home.length-1 >= tweetsSoFar + 1) {
+          $('button').slideToggle();
         }
 
       });

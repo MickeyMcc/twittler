@@ -25,7 +25,7 @@ time, mark, audio, video {
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-    display: block;
+    display: inline-block;
 }
 body {
     line-height: 1;
@@ -48,12 +48,31 @@ table {
 
 /* _________________CUSTOM STYLES_________________*/
 
+background {
+    color: lightblue;
+}
+
 h1 {
-    font-size: 96px;
+    font-size: 72px;
+    font-color: magenta;
+    font-style: sans-serif;
+    margin: 10px;
+    text-align: center;
 }
 
 script {
-    display: block;
-}
+    display: inline-block;
+    border: 2px;
 }
 
+div {
+    border: 1px solid black;
+    margin: 2px;
+}
+
+button {
+    display: none;
+    float: right;
+    font-style: sans-serif;
+    margin : 10px;
+}
