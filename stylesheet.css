@@ -48,31 +48,58 @@ table {
 
 /* _________________CUSTOM STYLES_________________*/
 
-background {
-    color: lightblue;
+
+body {
+    background-color: #e6ffff;
 }
 
 h1 {
+
     font-size: 72px;
-    font-color: magenta;
-    font-style: sans-serif;
     margin: 10px;
-    text-align: center;
+    text-align: left;
+    font-family: sans-serif;
+}
+
+h3 {
+    font-size: 24px;
+    font-family: sans-serif;
+    text-align: left;
+}
+
+button {
+    display: block;
+    float: right;
+    margin : 5px;
 }
 
 script {
     display: inline-block;
-    border: 2px;
 }
 
-div {
+.header {
+    margin: 10px 30px;
+}
+
+.tweet {
+    width: auto;
     border: 1px solid black;
-    margin: 2px;
+    margin: 3px 30px;
+    background-color: white;
 }
 
-button {
-    display: none;
-    float: right;
-    font-style: sans-serif;
-    margin : 10px;
+#userName {
+    font-style: italic;
+    color: blue;
+}
+
+#tweetContent {
+    text-indent: 15px;
+}
+
+#tweetTime {
+    font-size: 10px;
+    padding: 0px 5px;
+    text-align: right;
+    font-weight: 200;
 }

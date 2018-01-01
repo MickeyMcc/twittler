@@ -18,28 +18,35 @@
       $(document).ready(function(){
         var $body = $('body');
         var tweetsSoFar = 0;
-        $body.html('<h1> Twittler </h1><h3> Recent Updates </h3><button> Get New Tweets! </button>');
-        
+        $body.html('<h1> Twittler </h1><div class=header><button> Get New Tweets! </button><h3> Recent Updates </h3></div>');
 
-        //addTweets();
+        addTweets();
         
         function addTweets(tweetsSoFar) { 
           var index = streams.home.length - 1;
+          //$('button').slideToggle();
           while(index >= tweetsSoFar){
             var tweet = streams.home[index];
-            var $tweet = $('<div></div>');
-            $tweet.text('@' + tweet.user + ': ' + tweet.message);
+            var $tweet = $('<div class=tweet></div>');
+            var $userName = $('<p id=userName></p>');
+            $userName.text('@' + tweet.user + ': ');
+            $userName.appendTo($tweet);
+            var $tweetContent = $('<p id=tweetContent></p>');
+            $tweetContent.text(tweet.message);
+            $tweetContent.appendTo($tweet);
+            var $tweetTime = $('<p id=tweetTime></p>');
+            $tweetTime.text(tweet.created_at);
+            $tweetTime.appendTo($tweet);
             $tweet.appendTo($body);
             index -= 1;
           }
-
           tweetsSoFar = streams.home.length-1;
-          $('button').slideToggle();
         }
+
         $('button').on('click', addTweets(tweetsSoFar));
 
         if(streams.home.length-1 >= tweetsSoFar + 1) {
-          $('button').slideToggle();
+          //$('button').slideToggle();
         }
 
       });
