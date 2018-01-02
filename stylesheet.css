@@ -25,7 +25,7 @@ time, mark, audio, video {
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-    display: inline-block;
+    display: block;
 }
 body {
     line-height: 1;
@@ -50,56 +50,77 @@ table {
 
 
 body {
-    background-color: #e6ffff;
+    background-image: url(circles-dark.png);
+    font-family: Verdana, Geneva, sans-serif;
 }
 
-h1 {
 
-    font-size: 72px;
-    margin: 10px;
-    text-align: left;
-    font-family: sans-serif;
-}
 
 h3 {
-    font-size: 24px;
+    font-size: 20px;
     font-family: sans-serif;
     text-align: left;
-}
-
-button {
-    display: block;
-    float: right;
-    margin : 5px;
 }
 
 script {
-    display: inline-block;
+    display: block;
+}
+
+#title {
+
+    font-size: 36px;
+    margin: 10px 40px;
+    text-align: left; 
+    text-decoration: underline;
 }
 
 .header {
-    margin: 10px 30px;
+    margin: 10px 40px;
+}
+
+.mainfeed{
+    float: left;
+    max-width: 600px;
+}
+
+.sidebar {
+    width: 30%;
+    float: right;
+    background-color: white;
+
+}
+
+.sidebarUp{
+    width: 65%;
 }
 
 .tweet {
-    width: auto;
-    border: 1px solid black;
-    margin: 3px 30px;
-    background-color: white;
+    border: 1px solid grey;
+    margin: 5px 30px;
+    border-radius: 3px;
+    background-color: hsla(198, 20%, 83%, .7);
+    font-family: 'Georgia', serif;
 }
 
-#userName {
+.userName {
+    margin: 5px 5px;
     font-style: italic;
     color: blue;
 }
 
-#tweetContent {
+.tweetContent {
     text-indent: 15px;
 }
 
-#tweetTime {
+.tweetTime {
     font-size: 10px;
-    padding: 0px 5px;
+    padding: 0px 5px 2px 5px;
     text-align: right;
     font-weight: 200;
+}
+
+#tagline {
+    font-style: italic;
+    text-indent: 40px;
+    font-size: 12px;
 }

@@ -17,37 +17,70 @@
 
       $(document).ready(function(){
         var $body = $('body');
-        var tweetsSoFar = 0;
-        $body.html('<h1> Twittler </h1><div class=header><button> Get New Tweets! </button><h3> Recent Updates </h3></div>');
-
-        addTweets();
+        var $sidebar = $('<div class=sidebar></div>');
+        var $mainFeed = $('<div class=mainFeed></div>');
         
-        function addTweets(tweetsSoFar) { 
+        $body.html('<div><p id=title> Twittler </h1><p id=tagline> Know more about your friends than you ever wanted to </p></div><div class=header><h3> Recent Going-ons... </h3> <button> Get Me More Twits! </button> </div>');
+        
+        function addTweets() { 
           var index = streams.home.length - 1;
-          //$('button').slideToggle();
-          while(index >= tweetsSoFar){
+          $mainFeed.html('');
+          //$('button').toggle();
+          console.log('add tweets called');
+          while(index >= 0){
             var tweet = streams.home[index];
             var $tweet = $('<div class=tweet></div>');
-            var $userName = $('<p id=userName></p>');
-            $userName.text('@' + tweet.user + ': ');
-            $userName.appendTo($tweet);
-            var $tweetContent = $('<p id=tweetContent></p>');
-            $tweetContent.text(tweet.message);
-            $tweetContent.appendTo($tweet);
-            var $tweetTime = $('<p id=tweetTime></p>');
-            $tweetTime.text(tweet.created_at);
-            $tweetTime.appendTo($tweet);
-            $tweet.appendTo($body);
+            var $userName = $('<p class=userName></p>');
+              $userName.text('@' + tweet.user + ': ');
+              $userName.appendTo($tweet);
+            var $tweetContent = $('<p class=tweetContent></p>');
+              $tweetContent.text(tweet.message);
+              $tweetContent.appendTo($tweet);
+            var $tweetTime = $('<p class=tweetTime></p>');
+              $tweetTime.text(tweet.created_at);
+              $tweetTime.appendTo($tweet);
+            $tweet.appendTo($mainFeed);
             index -= 1;
           }
-          tweetsSoFar = streams.home.length-1;
+          $mainFeed.appendTo($body);
         }
 
-        $('button').on('click', addTweets(tweetsSoFar));
+        addTweets();
 
-        if(streams.home.length-1 >= tweetsSoFar + 1) {
-          //$('button').slideToggle();
+        function getUserTweets(userName) {
+          var index = streams.home.length-1;
+          $sidebar.text('');
+          while(index >= 0) {
+            var tweet = streams.home[index];
+            if (tweet.user === userName) {
+              var $tweet = $('<div class=tweet></div>');
+              var $userName = $('<p class=userName></p>');
+                $userName.text('@' + tweet.user + ': ');
+                $userName.appendTo($tweet);
+              var $tweetContent = $('<p class=tweetContent></p>');
+                $tweetContent.text(tweet.message);
+                $tweetContent.appendTo($tweet);
+              var $tweetTime = $('<p class=tweetTime></p>');
+                $tweetTime.text(tweet.created_at);
+                $tweetTime.appendTo($tweet);
+              $tweet.appendTo($sidebar);
+            }
+            index -=1;
+          }
+          $sidebar.appendTo($body);
+          $mainFeed.addClass('sidebarUp');
+          $sidebar.slideDown();
         }
+
+        $('button').on('click', addTweets);
+
+        $(document).on('click', '.userName', function(event) {
+            event.preventDefault();
+            var userName = $(this).text().substring(1, $(this).text().length -2);
+            console.log(userName);
+            getUserTweets(userName);
+            //show userTimeline
+        });
 
       });
 
