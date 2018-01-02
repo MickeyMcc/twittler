@@ -78,28 +78,33 @@ script {
     margin: 10px 40px;
 }
 
-.mainfeed{
+#mainfeed{
     float: left;
     max-width: 600px;
 }
 
-.sidebar {
+#sidebar {
     width: 30%;
     float: right;
     background-color: white;
-
-}
-
-.sidebarUp{
-    width: 65%;
+    box-shadow: -15px, 10px;
 }
 
 .tweet {
     border: 1px solid grey;
-    margin: 5px 30px;
+    margin: 5px 10px;
     border-radius: 3px;
     background-color: hsla(198, 20%, 83%, .7);
     font-family: 'Georgia', serif;
+}
+
+.sidebarUp{
+    width: 65%;
+    margin: 0px -20px 0px 0px;
+}
+
+.sidebarTweet {
+    background-color: white;
 }
 
 .userName {

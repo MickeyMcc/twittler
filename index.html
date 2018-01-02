@@ -25,9 +25,7 @@
         function addTweets() { 
           var index = streams.home.length - 1;
           $mainFeed.html('');
-          //$('button').toggle();
-          console.log('add tweets called');
-          while(index >= 0){
+          while((index >= streams.home.length-100) && (index >+0)){
             var tweet = streams.home[index];
             var $tweet = $('<div class=tweet></div>');
             var $userName = $('<p class=userName></p>');
@@ -50,10 +48,10 @@
         function getUserTweets(userName) {
           var index = streams.home.length-1;
           $sidebar.text('');
-          while(index >= 0) {
+          while((index >= streams.home.length-100) && (index >+0)) {
             var tweet = streams.home[index];
             if (tweet.user === userName) {
-              var $tweet = $('<div class=tweet></div>');
+              var $tweet = $('<div class=\'tweet sidebarTweet\'></div>');
               var $userName = $('<p class=userName></p>');
                 $userName.text('@' + tweet.user + ': ');
                 $userName.appendTo($tweet);
@@ -70,6 +68,7 @@
           $sidebar.appendTo($body);
           $mainFeed.addClass('sidebarUp');
           $sidebar.slideDown();
+          addTweets();
         }
 
         $('button').on('click', addTweets);
