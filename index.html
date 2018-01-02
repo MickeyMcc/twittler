@@ -45,9 +45,12 @@
 
         addTweets();
 
-        function getUserTweets(userName) {
+        function makeSidebar(userName) {
           var index = streams.home.length-1;
+          var $sidebarTitle = $('<p class=sidebarTitle></p>');
+          $sidebarTitle.text(userName + '\'s Twits');
           $sidebar.text('');
+          $sidebarTitle.appendTo($sidebar);
           while((index >= streams.home.length-100) && (index >+0)) {
             var tweet = streams.home[index];
             if (tweet.user === userName) {
@@ -65,6 +68,9 @@
             }
             index -=1;
           }
+          var $sidebarButton = $('<button class=closeSidebar></button>');
+          $sidebarButton.text('Done with these twits!');
+          $sidebarButton.appendTo($sidebar);
           $sidebar.appendTo($body);
           $mainFeed.addClass('sidebarUp');
           $sidebar.slideDown();
@@ -77,8 +83,14 @@
             event.preventDefault();
             var userName = $(this).text().substring(1, $(this).text().length -2);
             console.log(userName);
-            getUserTweets(userName);
+            makeSidebar(userName);
             //show userTimeline
+        });
+
+        $(document).on('click', '.closeSidebar', function(){
+          $sidebar.slideUp();
+          $mainFeed.removeClass('sidebarUp');
+          addTweets();
         });
 
       });

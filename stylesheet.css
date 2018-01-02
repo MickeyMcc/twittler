@@ -78,28 +78,30 @@ script {
     margin: 10px 40px;
 }
 
-#mainfeed{
+.mainfeed{
     float: left;
     max-width: 600px;
+    margin: 5px 10px;
 }
 
-#sidebar {
+.sidebar {
     width: 30%;
     float: right;
     background-color: white;
-    box-shadow: -15px, 10px;
+    margin: 0px 5px -40px 0px;
+    box-shadow: -15px, 10px, 10px, grey;
 }
 
 .tweet {
     border: 1px solid grey;
-    margin: 5px 10px;
     border-radius: 3px;
     background-color: hsla(198, 20%, 83%, .7);
     font-family: 'Georgia', serif;
+    margin: 5px;
 }
 
 .sidebarUp{
-    width: 65%;
+    width: 70%;
     margin: 0px -20px 0px 0px;
 }
 
@@ -108,7 +110,6 @@ script {
 }
 
 .userName {
-    margin: 5px 5px;
     font-style: italic;
     color: blue;
 }
@@ -119,7 +120,6 @@ script {
 
 .tweetTime {
     font-size: 10px;
-    padding: 0px 5px 2px 5px;
     text-align: right;
     font-weight: 200;
 }
