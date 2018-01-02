@@ -25,7 +25,7 @@
         function addTweets() { 
           var index = streams.home.length - 1;
           $mainFeed.html('');
-          while((index >= streams.home.length-100) && (index >+0)){
+          while(index >+0){
             var tweet = streams.home[index];
             var $tweet = $('<div class=tweet></div>');
             var $userName = $('<p class=userName></p>');
@@ -54,10 +54,7 @@
           while((index >= streams.home.length-100) && (index >+0)) {
             var tweet = streams.home[index];
             if (tweet.user === userName) {
-              var $tweet = $('<div class=\'tweet sidebarTweet\'></div>');
-              var $userName = $('<p class=userName></p>');
-                $userName.text('@' + tweet.user + ': ');
-              //  $userName.appendTo($tweet);
+              var $tweet = $('<div class=\'tweet sidebarTweet\'></div>');  //userName excluded in sideBar tweets
               var $tweetContent = $('<p class=tweetContent></p>');
                 $tweetContent.text(tweet.message);
                 $tweetContent.appendTo($tweet);

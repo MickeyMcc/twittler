@@ -133,7 +133,7 @@ script {
     margin-top: 4px;
 }
 
-.userName :hover {
+.userName:hover {
     color: darkblue;
 }
 
@@ -146,6 +146,7 @@ script {
     text-align: right;
     font-weight: 200;
     margin-bottom: 3px;
+    margin-right: 10px;
 }
 
 #tagline {
