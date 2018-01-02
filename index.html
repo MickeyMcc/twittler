@@ -20,7 +20,7 @@
         var $sidebar = $('<div class=sidebar></div>');
         var $mainFeed = $('<div class=mainFeed></div>');
         
-        $body.html('<div><p id=title> Twittler </h1><p id=tagline> Know more about your friends than you ever wanted to </p></div><div class=header><h3> Recent Going-ons... </h3> <button> Get Me More Twits! </button> </div>');
+        $body.html('<div class=header><p id=title> Twittler </h1><p id=tagline> Know more about your friends than you ever wanted to </p> <button id=refresh> Get Me More Twits! </button> </div>');
         
         function addTweets() { 
           var index = streams.home.length - 1;
@@ -57,7 +57,7 @@
               var $tweet = $('<div class=\'tweet sidebarTweet\'></div>');
               var $userName = $('<p class=userName></p>');
                 $userName.text('@' + tweet.user + ': ');
-                $userName.appendTo($tweet);
+              //  $userName.appendTo($tweet);
               var $tweetContent = $('<p class=tweetContent></p>');
                 $tweetContent.text(tweet.message);
                 $tweetContent.appendTo($tweet);
@@ -71,10 +71,8 @@
           var $sidebarButton = $('<button class=closeSidebar></button>');
           $sidebarButton.text('Done with these twits!');
           $sidebarButton.appendTo($sidebar);
-          $sidebar.appendTo($body);
-          $mainFeed.addClass('sidebarUp');
-          $sidebar.slideDown();
-          addTweets();
+          $sidebar.insertBefore($mainFeed);
+          $sidebar.slideDown(200);
         }
 
         $('button').on('click', addTweets);
@@ -82,15 +80,12 @@
         $(document).on('click', '.userName', function(event) {
             event.preventDefault();
             var userName = $(this).text().substring(1, $(this).text().length -2);
-            console.log(userName);
             makeSidebar(userName);
             //show userTimeline
         });
 
         $(document).on('click', '.closeSidebar', function(){
           $sidebar.slideUp();
-          $mainFeed.removeClass('sidebarUp');
-          addTweets();
         });
 
       });

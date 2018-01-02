@@ -52,9 +52,13 @@ table {
 body {
     background-image: url(circles-dark.png);
     font-family: Verdana, Geneva, sans-serif;
+
 }
 
-
+.closeSidebar {
+    margin-right: 5px;
+    float: right;
+}
 
 h3 {
     font-size: 20px;
@@ -67,65 +71,92 @@ script {
 }
 
 #title {
-
+    display: block;
     font-size: 36px;
-    margin: 10px 40px;
+    text-indent: 40px;
     text-align: left; 
     text-decoration: underline;
+    text-decoration-color: white;
 }
 
 .header {
+    margin: 0px 0px;
+    width: 100%;
+    background-color: white;
+    display: block;
+    padding-bottom: 25px;
+    padding-top: 5px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.mainFeed{
     margin: 10px 40px;
 }
 
-.mainfeed{
-    float: left;
-    max-width: 600px;
-    margin: 5px 10px;
+.sidebar {
+    margin: 0px 40px 10px 40px;
+    display: none;
+    padding: 30px 0px;
+    background-color: white;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
-.sidebar {
-    width: 30%;
-    float: right;
-    background-color: white;
-    margin: 0px 5px -40px 0px;
-    box-shadow: -15px, 10px, 10px, grey;
+.sidebarTitle {
+    text-align: center;
+    font-weight:bold;
+    padding-bottom: 5px;
 }
 
 .tweet {
     border: 1px solid grey;
     border-radius: 3px;
-    background-color: hsla(198, 20%, 83%, .7);
+    background-color: hsla(60, 100%, 90%, .5);
     font-family: 'Georgia', serif;
     margin: 5px;
 }
 
-.sidebarUp{
-    width: 70%;
-    margin: 0px -20px 0px 0px;
-}
-
 .sidebarTweet {
+    border: none;
+    border-radius: 0;
     background-color: white;
+    margin: 0px;
+    border-bottom: 1px dashed black;
 }
 
 .userName {
     font-style: italic;
     color: blue;
+    text-indent: 10px;
+    margin-top: 4px;
+}
+
+.userName :hover {
+    color: darkblue;
 }
 
 .tweetContent {
-    text-indent: 15px;
+    padding: 10px;
 }
 
 .tweetTime {
-    font-size: 10px;
+    font-size: 12px;
     text-align: right;
     font-weight: 200;
+    margin-bottom: 3px;
 }
 
 #tagline {
+    display: inline-block;
+    float: left;
     font-style: italic;
-    text-indent: 40px;
+    text-indent: 60px;
     font-size: 12px;
+}
+
+#refresh {
+    float: right;
+    margin-right: 50px; 
 }
